@@ -57,6 +57,9 @@ proc quit_emulator {} {
 }
 
 proc initialize_comsat {} {
+    # mfinit$g results in DEATHV
+    return
+
     respond "*" ":job comsat\r"
     respond "*" ":load .mail.;comsat launch\r"
     respond "*" "debug/-1\r"
