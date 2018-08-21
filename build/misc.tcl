@@ -1771,7 +1771,7 @@ move_to_klfe "kldcp; klddt a10"
 # It doesn't seem to work very well when purified.
 respond "*" ":kshack;micro kshack;mcr 262=kshack;its,ks10,simple,flt,extend,inout,itspag,pagef\r"
 expect ":KILL"
-respond "*" ":copy kshack; mcr ram, .; ram ram\r"
+respond "*" ":copy kshack; mcr ram, .; new ram\r"
 
 update_microcode
 
