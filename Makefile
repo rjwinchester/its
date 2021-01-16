@@ -71,6 +71,7 @@ KLFEDR=tools/dasm/klfedr
 DATAPOINT=tools/vt05/dp3300
 VT52=tools/vt05/vt52
 TEK=tools/tek4010/tek4010
+TT2500=tools/simh/BIN/tt2500
 
 H3TEXT=$(shell cd build; ls h3text.*)
 DDT=$(shell cd src; ls sysen1/ddt.* syseng/lsrtns.* syseng/msgs.* syseng/datime.* syseng/ntsddt.*)
@@ -101,7 +102,7 @@ out/simh/emulators: $(GT40) $(VT52)
 out/pdp10-ka/stamp: $(OUT)/rp03.2 $(OUT)/rp03.3
 	$(TOUCH) $@
 
-out/pdp10-ka/emulators: $(GT40) $(TV11) $(PDP6) $(DATAPOINT) $(VT52) $(TEK)
+out/pdp10-ka/emulators: $(GT40) $(TV11) $(PDP6) $(DATAPOINT) $(VT52) $(TEK) $(TT2500)
 	$(TOUCH) $@
 
 out/pdp10-kl/stamp: $(OUT)/rp04.1
@@ -301,6 +302,9 @@ $(SMF):
 
 tools/simh/BIN/pdp11:
 	$(MAKE) -C tools/simh pdp11
+
+$(TT2500):
+	$(MAKE) -C tools/simh tt2500
 
 check-dirs: Makefile
 	mkdir -p $(OUT)/check
